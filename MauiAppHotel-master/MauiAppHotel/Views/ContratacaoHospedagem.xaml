@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
+             Title="ContratacaoHospedagem"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Gray100}">
+
+    <!-- Layout Principal -->
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"
+                         Spacing="10">
+
+        <Label Text="Cálculo da Diária"
+               FontFamily="Kalam"
+               FontSize="50"
+               TextColor="{StaticResource Primary}"/>
+
+        <!-- Frame 1: Contém os Steppers e o Frame da Suíte -->
+        <Frame Padding="10" BackgroundColor="{StaticResource Gray200}" BorderColor="Transparent">
+            <VerticalStackLayout>
+                <!-- Grid dos Steppers (Adultos e Crianças) -->
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, 2*">
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Adultos:" TextColor="{StaticResource Gray900}" VerticalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="1" TextColor="{StaticResource Primary}" Text="{Binding Value}" BindingContext="{x:Reference stp_adultos}" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Stepper Grid.Row="0" Grid.Column="2" x:Name="stp_adultos" Minimum="0" Maximum="10" Increment="1"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Crianças:" TextColor="{StaticResource Gray900}" VerticalOptions="Center"/>
+                    <Label Grid.Row="1" Grid.Column="1" TextColor="{StaticResource Primary}" Text="{Binding Value}" BindingContext="{x:Reference stp_criancas}" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Stepper Grid.Row="1" Grid.Column="2" x:Name="stp_criancas" Minimum="0" Maximum="10" Increment="1"/>
+                </Grid>
+
+                <!-- Frame 2: Escolha da Suíte -->
+                <Frame Padding="10" Margin="10" BackgroundColor="{StaticResource Gray100}" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="Escolha sua Suíte"
+                               TextTransform="Uppercase"
+                               FontSize="Subtitle"
+                               TextColor="{StaticResource Primary}"/>
+
+                        <Picker x:Name="pck_quarto"
+                                Title="Selecione sua Acomodação"
+                                ItemDisplayBinding="{Binding Descricao}"
+                                TextColor="{StaticResource Gray900}"
+                                TitleColor="{StaticResource Gray600}"/>
+
+                        <!--
+                        Este é o botão "Sobre".
+                        Ele está posicionado dentro do primeiro bloco, junto com a seleção de suíte.
+                        -->
+                        <Button
+                            Text="Sobre"
+                            Clicked="OnSobreClicked"
+                            HorizontalOptions="Center"
+                            Margin="0,20,0,0"/>
+                    
+                    </VerticalStackLayout>
+                </Frame>
+            
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Frame 3: Período da Estadia -->
+        <Frame Padding="10" Margin="10" BackgroundColor="{StaticResource Gray200}" BorderColor="Transparent">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Período da Estadia"
+                       TextTransform="Uppercase"
+                       FontSize="Subtitle"
+                       TextColor="{StaticResource Primary}"/>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Check-in:" TextColor="{StaticResource Gray900}" VerticalOptions="Center"/>
+                    <DatePicker x:Name="dtpck_checkin"
+                                DateSelected="dtpck_checkin_DateSelected"
+                                Format="dd/MM/yyyy"
+                                TextColor="{StaticResource Gray900}"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Check-out:" TextColor="{StaticResource Gray900}" VerticalOptions="Center"/>
+                    <DatePicker x:Name="dtpck_checkout"
+                                Format="dd/MM/yyyy"
+                                TextColor="{StaticResource Gray900}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!--
+        Este é o botão "Avançar" principal.
+        Ele está posicionado no final da página, conforme o fluxo original do app.
+        -->
+        <Button Text="Avançar"
+                Clicked="Button_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

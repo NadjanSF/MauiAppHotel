@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Sobre"
+             Title="Sobre o Aplicativo"
+             BackgroundColor="{StaticResource Gray100}">
+    
+    <!-- 
+    Esta é a nova página "Sobre" solicitada na personalização.
+    Ela usa um VerticalStackLayout para organizar os elementos.
+    -->
+
+    <VerticalStackLayout Spacing="15" Padding="30" VerticalOptions="Center">
+
+        <!-- 
+        Foi adicionada uma imagem conforme solicitado.
+        Estou usando um placeholder (placehold.co) que gera uma imagem com o texto
+        "Castelo Transilvânia" e as cores do tema Halloween.
+        -->
+        <Image
+            Source="castelo.jpg"
+            SemanticProperties.Description="Imagem do Castelo Nadjania"
+            HeightRequest="200"
+            HorizontalOptions="Center" />
+
+        <!-- 
+        Este é o texto "Neon" O efeito foi criado usando a propriedade 'Shadow' para dar um brilho laranja.
+        -->
+        <Label 
+            Text="CASTELO DA NADJAN"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="{StaticResource Primary}"
+            HorizontalOptions="Center"
+            Margin="0, -10, 0, 0">
+            <Label.Shadow>
+                <Shadow Brush="{StaticResource Primary}"
+                        Offset="0,0"
+                        Radius="10" />
+            </Label.Shadow>
+        </Label>
+        <Label 
+            Text="Onde seus monstros podem ser livres"
+            FontSize="Small"
+            FontAttributes="Italic"
+            TextColor="{StaticResource Gray600}"
+            HorizontalOptions="Center"
+            Margin="0, 5, 0, 0" />
+
+        <Label 
+            Text="Desenvolvido por:"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            TextColor="{StaticResource Gray900}"
+            Margin="0, 20, 0, 0"/>
+
+        <Label 
+            Text="Nadjan santos florencio" 
+            FontSize="Large"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" 
+            TextColor="{StaticResource Gray950}"/>
+
+        <Label 
+            Text="Curso Técnico em Desenvolvimento de Sistemas - ETEC"
+            HorizontalOptions="Center"
+            TextColor="{StaticResource Gray900}" />
+
+        <Label 
+            Text="Ano: 2025"
+            FontSize="Small"
+            HorizontalOptions="Center" 
+            TextColor="{StaticResource Gray600}"/>
+
+    </VerticalStackLayout>
+</ContentPage>
