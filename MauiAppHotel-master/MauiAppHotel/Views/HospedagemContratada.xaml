@@ -2,65 +2,63 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.HospedagemContratada"
-             NavigationPage.HasNavigationBar="False"
+             Title="Resumo da Reserva"
              BackgroundColor="{StaticResource Gray100}">
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+    <VerticalStackLayout Spacing="10" Padding="20">
+        <Label 
+            Text="Reserva Concluída!"
+            FontFamily="Kalam"
+            FontSize="40"
+            TextColor="{StaticResource Primary}"
+            HorizontalOptions="Center" />
 
-        <Label Text="{Binding QuartoSelecionado.Descricao}"
-               TextColor="{StaticResource Primary}"
-               FontFamily="Kalam"
-               FontSize="50"
-               HorizontalTextAlignment="Center"/>
-
-        <Frame Margin="10">
-            <StackLayout  Orientation="Horizontal" >
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                    <Label Text="Adultos: " />
-                    <Label Text="{Binding QntAdultos}" 
-                           TextColor="{StaticResource Primary}" />
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                    <Label Text="Crianças: " />
-                    <Label Text="{Binding QntCriancas}" 
-                           TextColor="{StaticResource Primary}" />
-                </HorizontalStackLayout>
-            </StackLayout>
+        <Frame Style="{StaticResource CardFrame}">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Sua Suíte:" Style="{StaticResource LabelTitulo}" />
+                <Label Text="{Binding QuartoSelecionado.Descricao}" Style="{StaticResource LabelDados}" />
+            </VerticalStackLayout>
         </Frame>
 
-        <Frame Margin="10">
-            <Grid ColumnDefinitions="*, *, *"
-                  RowDefinitions="Auto, Auto">
-                <Label Grid.Row="0" Grid.Column="0" Text="Check-in:" />
-                <Label Grid.Row="0" Grid.Column="1" Text="Check-out:" />
-                <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" />
-
-                <Label Grid.Row="1" Grid.Column="0" 
-                       Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
-                       TextColor="{StaticResource Primary}" />
-
-                <Label Grid.Row="1" Grid.Column="1" 
-                       Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
-                       TextColor="{StaticResource Primary}" />
-
-                <Label Grid.Row="1" Grid.Column="2" 
-                       Text="{Binding Estadia}"
-                       TextColor="{StaticResource Primary}"/>
+        <Frame Style="{StaticResource CardFrame}">
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*,*">
+                <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="10">
+                    <Label Text="Nº de Adultos:" Style="{StaticResource LabelTitulo}" />
+                    <Label Text="{Binding QntAdultos}" Style="{StaticResource LabelDados}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="10">
+                    <Label Text="Nº de Crianças:" Style="{StaticResource LabelTitulo}" />
+                    <Label Text="{Binding QntCriancas}" Style="{StaticResource LabelDados}" />
+                </VerticalStackLayout>
             </Grid>
         </Frame>
 
-        <Frame Margin="10">
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                <Label Text="Valor Total: " />
-                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'} "
-                       TextColor="{StaticResource Primary}" />
-            </HorizontalStackLayout>
+        <Frame Style="{StaticResource CardFrame}">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Período da Estadia:" Style="{StaticResource LabelTitulo}" />
+                <Label Text="{Binding Estadia, StringFormat='{0} dias'}" Style="{StaticResource LabelDados}" />
+
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="Check-in:" Style="{StaticResource LabelTitulo}" />
+                    <Label Text="{Binding DataCheckIn, StringFormat='{0:dd/MM/yyyy}'}" Style="{StaticResource LabelDados}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="Check-out:" Style="{StaticResource LabelTitulo}" />
+                    <Label Text="{Binding DataCheckOut, StringFormat='{0:dd/MM/yyyy}'}" Style="{StaticResource LabelDados}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
         </Frame>
 
-        <Button Text="Voltar"
-                HorizontalOptions="Center"
-                Clicked="Button_Clicked" />
+        <Frame Style="{StaticResource CardFrame}" BackgroundColor="{StaticResource Primary}">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="VALOR TOTAL:" FontSize="18" TextColor="{StaticResource White}" FontAttributes="Bold" />
+                <Label Text="{Binding ValorTotal, StringFormat='R$ {0:F2}'}" FontSize="30" TextColor="{StaticResource White}" FontAttributes="Bold" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar ao Início"
+                Clicked="Voltar_Clicked"
+                HorizontalOptions="Fill" />
 
     </VerticalStackLayout>
 </ContentPage>

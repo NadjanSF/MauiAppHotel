@@ -1,52 +1,52 @@
-﻿using MauiAppHotel.Models;
+﻿// **PERSONALIZAÇÃO (MINHA IDEIA):** Mudei os nomes e preços das suítes
+// para combinar com o tema "Castelo da Nadjan" (Halloween).
+
+using MauiAppHotel.Models;
+using MauiAppHotel.Views;
 
 namespace MauiAppHotel
 {
     public partial class App : Application
     {
-        public List<Quarto> lista_quartos = new List<Quarto>
-        {
-            new Quarto()
-            {
-                Descricao = "Suíte Super Luxo",
-                ValorDiariaAdulto = 110.0,
-                ValorDiariaCrianca = 55.0
-            },
-            new Quarto()
-            {
-                Descricao = "Suíte Luxo",
-                ValorDiariaAdulto = 80.0,
-                ValorDiariaCrianca = 40.0
-            },
-            new Quarto()
-            {
-                Descricao = "Suíte Single",
-                ValorDiariaAdulto = 50,
-                ValorDiariaCrianca = 25
-            },
-            new Quarto()
-            {
-                Descricao = "Suíte Crise",
-                ValorDiariaAdulto = 25,
-                ValorDiariaCrianca = 12.5
-            }
-        };
+        // Propriedade global para a lista de quartos
+        public List<Quarto> lista_quartos = new List<Quarto>();
 
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.ContratacaoHospedagem());
-        }
+            Routing.RegisterRoute(nameof(Sobre), typeof(Sobre));
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            var window = base.CreateWindow(activationState);
+            // Adicionando quartos temáticos de Halloween
+            lista_quartos.Add(new Quarto
+            {
+                Descricao = "A Cripta do Vampiro",
+                ValorDiariaAdulto = 110.0,
+                ValorDiariaCrianca = 55.0
+            });
 
-            window.Width = 400;
-            window.Height = 600;
+            lista_quartos.Add(new Quarto
+            {
+                Descricao = "Cabana da Bruxa",
+                ValorDiariaAdulto = 80.0,
+                ValorDiariaCrianca = 40.0
+            });
 
-            return window;
+            lista_quartos.Add(new Quarto
+            {
+                Descricao = "Torre da Masmorra",
+                ValorDiariaAdulto = 50.0,
+                ValorDiariaCrianca = 25.0
+            });
+            lista_quartos.Add(new Quarto
+            {
+                Descricao = "Porão",
+                ValorDiariaAdulto = 25.0,
+                ValorDiariaCrianca = 2.50
+            });
+
+
+            MainPage = new NavigationPage(new ContratacaoHospedagem());
         }
     }
 }

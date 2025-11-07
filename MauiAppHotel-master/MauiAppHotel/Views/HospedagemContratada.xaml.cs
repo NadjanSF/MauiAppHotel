@@ -1,14 +1,19 @@
-namespace MauiAppHotel.Views;
+using MauiAppHotel.Views;
 
-public partial class HospedagemContratada : ContentPage
+namespace MauiAppHotel.Views
 {
-	public HospedagemContratada()
-	{
-		InitializeComponent();
-	}
-
-    private void Button_Clicked(object sender, EventArgs e)
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HospedagemContratada : ContentPage
     {
-		Navigation.PopAsync();
+        public HospedagemContratada()
+        {
+            InitializeComponent();
+        }
+
+        private async void Voltar_Clicked(object sender, EventArgs e)
+        {
+            // PopToRootAsync limpa a pilha e volta para a página inicial (root)
+            await Navigation.PopToRootAsync();
+        }
     }
 }
