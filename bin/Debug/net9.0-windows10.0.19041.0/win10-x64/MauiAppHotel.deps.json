@@ -9,8 +9,9 @@
     ".NETCoreApp,Version=v9.0/win10-x64": {
       "MauiAppHotel/1.0": {
         "dependencies": {
-          "Microsoft.Extensions.Logging.Debug": "9.0.8",
+          "Microsoft.Extensions.Logging.Debug": "8.0.0",
           "Microsoft.Maui.Controls": "9.0.111",
+          "Microsoft.Maui.Controls.Compatibility": "9.0.111",
           "Microsoft.Web.WebView2.Core.Projection": "1.0.3179.45",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.57"
         },
@@ -96,16 +97,16 @@
           }
         }
       },
-      "Microsoft.Extensions.Logging.Debug/9.0.8": {
+      "Microsoft.Extensions.Logging.Debug/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.8",
           "Microsoft.Extensions.Logging": "9.0.8",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.8"
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Logging.Debug.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.825.36511"
+          "lib/net8.0/Microsoft.Extensions.Logging.Debug.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
           }
         }
       },
@@ -165,6 +166,20 @@
         "dependencies": {
           "Microsoft.Maui.Controls.Core": "9.0.111",
           "Microsoft.Maui.Controls.Xaml": "9.0.111"
+        }
+      },
+      "Microsoft.Maui.Controls.Compatibility/9.0.111": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "9.0.8",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.8",
+          "Microsoft.Maui.Controls.Core": "9.0.111",
+          "Microsoft.Maui.Controls.Xaml": "9.0.111"
+        },
+        "runtime": {
+          "lib/net9.0-windows10.0.19041/Microsoft.Maui.Controls.Compatibility.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "9.1.1125.47405"
+          }
         }
       },
       "Microsoft.Maui.Controls.Core/9.0.111": {
@@ -544,12 +559,12 @@
       "path": "microsoft.extensions.logging.abstractions/9.0.8",
       "hashPath": "microsoft.extensions.logging.abstractions.9.0.8.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging.Debug/9.0.8": {
+    "Microsoft.Extensions.Logging.Debug/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OwHQFVITsONEoizShc1yNYTUvMq0kT9j/LhwAKMsA7OZqtrBXuqjosbSvzkJZ9o+KWAozDh5Y1Vtpe5p/8/1qA==",
-      "path": "microsoft.extensions.logging.debug/9.0.8",
-      "hashPath": "microsoft.extensions.logging.debug.9.0.8.nupkg.sha512"
+      "sha512": "sha512-dt0x21qBdudHLW/bjMJpkixv858RRr8eSomgVbU8qljOyfrfDGi1JQvpF9w8S7ziRPtRKisuWaOwFxJM82GxeA==",
+      "path": "microsoft.extensions.logging.debug/8.0.0",
+      "hashPath": "microsoft.extensions.logging.debug.8.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/9.0.8": {
       "type": "package",
@@ -592,6 +607,13 @@
       "sha512": "sha512-4s5drnlstylNE4fCtwvMZsV1RE4TmNygIkd2dsIN3kCsItrV1kKOnDU6voB+sYKeAWQplJL5eTqCcROD3xihLg==",
       "path": "microsoft.maui.controls.build.tasks/9.0.111",
       "hashPath": "microsoft.maui.controls.build.tasks.9.0.111.nupkg.sha512"
+    },
+    "Microsoft.Maui.Controls.Compatibility/9.0.111": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MeerMY9N/9+gi+IvOd6affKy5RYVmBOitNJsOM/JnIrCbm7+2exiSPs6zN6222al/1W1aLnqxI4QPiaEU4Md6Q==",
+      "path": "microsoft.maui.controls.compatibility/9.0.111",
+      "hashPath": "microsoft.maui.controls.compatibility.9.0.111.nupkg.sha512"
     },
     "Microsoft.Maui.Controls.Core/9.0.111": {
       "type": "package",
